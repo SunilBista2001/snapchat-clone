@@ -19,7 +19,7 @@ const ChatTopbar = async ({ id }: { id: string }) => {
             <ChevronLeft className="min-w-7" />
           </Link>
         </Button>
-        <ChatUserInfo username={user.username} avatar={user?.avatar} />
+        <ChatUserInfo username={user?.username} avatar={user?.avatar} />
       </div>
       {/* right */}
       <DeleteMessagesButton />
