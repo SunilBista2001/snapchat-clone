@@ -5,6 +5,7 @@ import { connectToMongoDb } from "./db";
 import { v2 as cloudinary } from "cloudinary";
 import Message, { IMessageDocument } from "@/models/message.model";
 import Chat, { IChatDocument } from "@/models/chat.model";
+import { unstable_noStore as noStore } from "next/cache";
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -32,6 +33,7 @@ export const sendMessageAction = async (
   content: string,
   messageType: "text" | "image"
 ) => {
+  noStore();
   try {
     const session = await auth();
 
